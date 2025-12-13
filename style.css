@@ -35,8 +35,8 @@ body {
     background-color: #bd0710;
     color: white;
     text-decoration: none;
-    border-radius: 4px;
-    margin-left: 15px;
+    border-radius: 3px;
+    margin-left: 4vh;
     transition: 0.3s;
 }
 
@@ -48,3 +48,27 @@ p{
     color: black;
 }
 
+.join::after{
+    content:"Join Now";
+}
+@media(max-width:600px) {
+    .head-bar {
+        padding: 0 15px;
+    }
+
+    .nav-btn a {
+        width: 75px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        margin-left: 6px;
+        border-radius: 4px;
+    }
+    .join::after{
+        content:"Join";
+    }
+    .logo-img {
+        height: 40px;
+        padding-right: 2vh;
+    }
+}

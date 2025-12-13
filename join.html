@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign in here</title>
+    <title>Subscribe to join</title>
 </head>
 <body>
     <header>
@@ -12,12 +12,19 @@
     <main class="sign-menu">
         <div class="sign-cnt">
             <div class="signin-input">
+                <div class="sign-in">
+                    <p>Already have an Account ? <a href="sign in.html"> sign in</a></p>
+                </div>
                 <div class="head-bar">
-                    <h1>Sign in</h1>
-                </div> 
+                    <h1>Sign up</h1>
+                </div>
+                    <div class="name-tag">
+                        <input type="text" name="first name" id="FirstName-input" placeholder="First Name">
+                        <input type="text" name="last name" id="LastName-input" placeholder="Last Name">
+                    </div>
                     <input type="email" name="mail" id="mail-input" placeholder="Email or Phone number">
-                    <input type="password" name="password" id="password-input" placeholder="Password">
-                    <button type="Sign in" class="signin-btn">Sign In</button>
+                    <input type="password" name="password" id="password-input" placeholder=" Create Password">
+                    <button type="Sign in" class="signin-btn">Continue</button>
             <div class="content-box">
                 <div class="box">
                     <p>
@@ -28,7 +35,8 @@
                 <a href="#">Need help?</a> 
             </div>
             <div class="new-to-netflix">
-                <p>New to Netflix? <a href="join.html">Sign up now.</a></p>
+                <span>or</span>
+                <button type="facebook" class="Facebook"> <img src="" alt=""> Facebook</button>
                 <p id="cnt">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></p>
             </div>
         </div>
@@ -57,8 +65,7 @@
 
         body{
             background: 
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url(Imagie/sign_in\ bg.jpg);
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),url(Imagie/sign_in\ bg.jpg);
             background-size: cover;      
             background-repeat: no-repeat;
             background-position: center;
@@ -66,10 +73,29 @@
             font-family: "poppins", sans-serif;
             color: white;
             }
-
-
+        .sign-in{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .sign-cnt p{
+            margin-bottom: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            text-align: right;
+            color: rgb(175, 173, 173);
+        }
+        .sign-in a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .sign-cnt h1{
+            padding-bottom: 20px;
+            font-size: 2rem;
+            text-align: left;
+        }
         .sign-cnt{
-            height: 500px;
+            height: 600px;
             width: 400px;
             background-color: rgba(0,0,0,0.8);
             display: flex;
@@ -83,8 +109,9 @@
         }
 
         .sign-cnt h1{
-            padding-bottom: 20px;
+            padding-bottom: 25px;
             font-size: 2rem;
+            font-weight: 400;
             text-align: left;
         }
 
@@ -122,26 +149,21 @@
             color: rgb(175, 173, 173);
         }
 
-        .signin-btn {
-            height: 50px;
-            margin-top: 25px;
+        .signin-btn{
             width: 100%;
-            background: linear-gradient(45deg, #e50914, #8a0108);
+            height: 50px;
+            margin-top: 25px ;
+            background:linear-gradient(45deg,#e50914,#740107);
             border: none;
-            border-radius: 5px;
+            border-radius: 3px;
             color: white;
             font-size: 18px;
             cursor: pointer;
-            transition: background 3s ease;
-        }
-        
-        .signin-btn:hover {
-            background: linear-gradient(45deg, #8a0108, #e50914);
         }
 
         .content-box{
             margin-top: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -151,10 +173,24 @@
         }
 
         .new-to-netflix{
-            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
             font-size: 17px;
             color: rgb(179, 179, 179);
             text-align: left;
+        }
+
+        .Facebook{
+            width: 100%;
+            height: 50px;
+            background:linear-gradient(45deg,#e50914,#740107);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            cursor: pointer;
+
         }
 
         .content-box a{
@@ -177,6 +213,7 @@
 
         .new-to-netflix p{
             margin-bottom: 15px;
+            text-align: left;
         }
 
         #cnt{
@@ -197,7 +234,42 @@
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.533);
         }
 
+        .signin-btn:hover {
+            background-color: #940007;
+        }
 
+        .name-tag{
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .name-tag input{
+            width: 50%;
+            height: 50px;
+            outline: none;
+            border:none;
+            background-color: rgb(36, 35, 35);
+            border-radius:3px;
+            color: white;
+            padding: 0 10px;
+            font-size: 16px;
+        }
+
+        .name-tag input::placeholder{
+            color: rgb(175, 173, 173);
+        }
+
+        .name-tag input:focus{
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.533);
+        }
+        span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
         @media (max-width: 450px){
             .sign-cnt{
                 width: 90%;
