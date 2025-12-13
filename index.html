@@ -9,6 +9,7 @@
 <body>
     <header class="head-bar">
         <img src="Imagie/logo.png" alt="Netflix Logo" class="logo-img">
+        <p id="login-type"></p>
         <nav class="nav-btn">
             <p class="head-txt">UNLIMITED SHOW & MOVIES</p>
             <a href="join.html" class="join"></a>
@@ -47,6 +48,11 @@
 <script>
 if(localStorage.getItem("isLoggedIn")!=="true"){
     window.location.href="sign in.html";
+}
+const loginType=localStorage.getItem("loginType");
+const loginText=document.getElementById("login-type");
+if(loginType==="facebook"&&loginText){
+    loginText.textContent="Logged in via Facebook";
 }
 </script>
 <script src="script.js"></script>
