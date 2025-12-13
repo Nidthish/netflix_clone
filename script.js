@@ -46,3 +46,46 @@ function renderTrendingRow(movies) {
   });
 }
 document.addEventListener("DOMContentLoaded", fetchTrendingMovies);
+
+const featuredMovies = [
+  "Inception",
+  "Interstellar",
+  "The Dark Knight",
+  "Avengers: Endgame",
+  "Gladiator",
+  "Joker",
+  "Leo",
+  "Dragon",
+  "Thunivu",
+  "My Secret Santa",
+  "Rio",
+  "Stranger Things"
+];
+async function loadBannerMovie() {
+  const movieTitle =
+    featuredMovies[Math.floor(Math.random() * featuredMovies.length)];
+  try {
+    const res = await fetch(`${API_URL}&t=${encodeURIComponent(movieTitle)}`);
+    const movie = await res.json();
+    if (movie.Response === "False" || movie.Poster === "N/A") return;
+    const img = document.getElementById("banner-img");
+    const title = document.getElementById("banner-title");
+    const desc = document.getElementById("banner-desc");
+    if (!img || !title || !desc) return;
+    img.src = movie.Poster;
+    title.textContent = movie.Title;
+    desc.textContent = movie.Plot;
+    banner.style.backgroundImage =
+  `linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.3)), url(${movie.Poster})`;
+    banner.style.backgroundSize = "cover";
+    banner.style.backgroundPosition = "center";
+    title.textContent = movie.Title;
+    desc.textContent = movie.Plot;
+  } catch (err) {
+    console.log("Banner error", err);
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  fetchTrendingMovies();
+  loadBannerMovie();
+});
