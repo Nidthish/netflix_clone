@@ -164,3 +164,76 @@ p{
 .movie-list::-webkit-scrollbar {
     display: none;
 }
+.movie-card {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.movie-card img {
+    height: 200px;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+.movie-info {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 6px;
+    padding: 10px;
+}
+.movie-card:hover .movie-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+.movie-card:hover img {
+    transform: scale(1.1);
+}
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    background: #111;
+    color: white;
+    max-width: 800px;
+    width: 90%;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.modal-content img {
+    height: 300px;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+}
+
+.modal-text {
+    flex: 1;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}

@@ -14,215 +14,146 @@
             <div class="signin-input">
                 <div class="head-bar">
                     <h1>Sign in</h1>
-                </div> 
-                    <input type="email" name="mail" id="mail-input" placeholder="Email or Phone number">
-                    <input type="password" name="password" id="password-input" placeholder="Password">
-                    <button type="Sign in" class="signin-btn">Sign In</button>
-            <div class="content-box">
-                <div class="box">
-                    <p>
-                        <input type="checkbox" name="remember" id="remember-me" >Remember me
-                    </p>
                 </div>
-                
-                <a href="#">Need help?</a> 
-            </div>
-            <div class="new-to-netflix">
-                <p>New to Netflix? <a href="join.html">Sign up now.</a></p>
-                <p id="cnt">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></p>
+                <input type="text" id="mail-input" placeholder="Email or Phone number">
+                <input type="password" id="password-input" placeholder="Password">
+                <p id="error-msg"></p>
+                <button class="signin-btn">Sign In</button>
+                <div class="content-box">
+                    <p><input type="checkbox" id="remember-me">Remember me</p>
+                    <a href="#">Need help?</a>
+                </div>
+                <div class="new-to-netflix">
+                    <p>New to Netflix? <a href="join.html">Sign up now.</a></p>
+                    <p id="cnt">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></p>
+                </div>
             </div>
         </div>
-    </div>
-</main>
-
-<style>
-    
+    </main>
+    <style>
         *{
-            margin: 0;
-            padding: 0;
+            margin:0;
+            padding:0;
             box-sizing:border-box;
         }
-
+        body{
+            background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url(Imagie/sign_in\ bg.jpg);
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-attachment:fixed;
+            font-family:"poppins",sans-serif;
+            color:white;
+        }
         .logo-img{
-            margin: 20px 20px;
+            margin:20px;
             height:70px;
         }
-
         main{
             display:flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
+            justify-content:center;
+            align-items:center;
+            height:80vh;
         }
-
-        body{
-            background: 
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url(Imagie/sign_in\ bg.jpg);
-            background-size: cover;      
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: "poppins", sans-serif;
-            color: white;
-            }
-
-
         .sign-cnt{
-            height: 500px;
-            width: 400px;
-            background-color: rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            padding: 20px;
-            gap: 20px;
+            width:400px;
+            background:rgba(0,0,0,0.8);
+            border-radius:5px;
+            padding:20px;
         }
-
-        .sign-cnt h1{
-            padding-bottom: 20px;
-            font-size: 2rem;
-            text-align: left;
-        }
-
         .signin-input{
-            padding-top: 10px;
-            display: flex;
+            display:flex;
             flex-direction:column;
-            justify-content: center;
-            align-items: center;
-            height: max-content;
-            width: 90%;
+            gap:15px;
         }
-
-        #mail-input,#password-input{
-            width: 100%;
-            height: 50px;
-            margin: 5px 0;
-            padding: 0 10px;
-            border-radius: 3px;
-            border: none;
-            font-size: 15px;
-            background-color: rgb(36, 35, 35);
-            outline: none;
-            color: white;
+        #mail-input,
+        #password-input{
+            width:100%;
+            height:50px;
+            background:#242323;
+            border:none;
+            border-radius:3px;
+            color:white;
+            padding:0 10px;
+            font-size:15px;
         }
-
-        .head-bar{
-            padding: 0%;
-            width: 100%;
-            text-align: left;
-        }
-
         input::placeholder{
-            padding-left: 10px;
-            color: rgb(175, 173, 173);
+            color:#afadad;
         }
-
-        .signin-btn {
-            height: 50px;
-            margin-top: 25px;
-            width: 100%;
-            background: linear-gradient(45deg, #e50914, #8a0108);
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 3s ease;
+        input:focus{
+            outline:none;
+            box-shadow:0 0 0 2px rgba(255,255,255,0.5);
         }
-        
-        .signin-btn:hover {
-            background: linear-gradient(45deg, #8a0108, #e50914);
-        }
-
-        .content-box{
-            margin-top: 10px;
-            margin-bottom: 25px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            color: gray;
-        }
-
-        .new-to-netflix{
-            margin-top: 25px;
-            font-size: 17px;
-            color: rgb(179, 179, 179);
-            text-align: left;
-        }
-
-        .content-box a{
-            color: white;
-            text-decoration: none;
-        }
-
-        .content-box input[type="checkbox"]{
-            cursor: pointer;
-            accent-color: #e50914;
-            margin-right: 6px;
-            outline: none;
-        }
-
-        .new-to-netflix a{
-            color: white;
-            font-size: 15px;
-            text-decoration: none;
-        }
-
-        .new-to-netflix p{
-            margin-bottom: 15px;
-        }
-
-        #cnt{
-            font-size: 14px;
-        }
-
-        #cnt a{
-            font-size: 14px;
-            color: blue;
-        }
-
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-        background-color: rgb(50, 49, 49);
-        font-size: 16px;
-        outline: none;
-        border: none;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.533);
-        }
-
-
-        @media (max-width: 450px){
-            .sign-cnt{
-                width: 90%;
-            
-        }
-        header .logo-img{
-            height: 70px;
-            align-items: center;
-        }
-
-        header{
-            display: flex;
-            justify-content: center;
-        }
-
-        #mail-input,#password-input{
-            height: 40px;
-            margin: 10px 0;
-        }
-
         .signin-btn{
-            height: 40px;
-            
+            height:50px;
+            background:linear-gradient(45deg,#e50914,#8a0108);
+            border:none;
+            border-radius:5px;
+            color:white;
+            font-size:18px;
+            cursor:pointer;
         }
-}
+        .signin-btn:hover{
+            background:linear-gradient(45deg,#8a0108,#e50914);
+        }
+        .content-box{
+            display:flex;
+            justify-content:space-between;
+            font-size:14px;
+            color:gray;
+        }
+        .content-box a{
+            color:white;
+            text-decoration:none;
+        }
+        .new-to-netflix{
+            font-size:15px;
+            color:#b3b3b3;
+        }
+        #cnt{
+            font-size:14px;
+        }
+        #cnt a{
+            color:blue;
+        }
+        #error-msg{
+            color:#e50914;
+            font-size:14px;
+            min-height:18px;
+        }
+        @media(max-width:450px){
+            .sign-cnt{
+                width:90%;
+            }
+            header{
+                display:flex;
+                justify-content:center;
+            }
+        }
     </style>
+    <script>
+        const loginInput=document.getElementById("mail-input");
+        const passwordInput=document.getElementById("password-input");
+        const button=document.querySelector(".signin-btn");
+        const errorMsg=document.getElementById("error-msg");
+        function showError(msg,input){
+            errorMsg.textContent=msg;
+            if(input)input.focus();
+        }
+        button.addEventListener("click",e=>{
+            e.preventDefault();
+            errorMsg.textContent="";
+            if(loginInput.value.trim()===""){showError("Email or phone number is required",loginInput);return;}
+            if(!isValidEmailOrPhone(loginInput.value.trim())){showError("Enter a valid email or 10-digit phone number",loginInput);return;}
+            if(passwordInput.value.trim()===""){showError("Password is required",passwordInput);return;}
+            const storedUser=JSON.parse(localStorage.getItem("netflixUser"));
+            if(!storedUser){showError("No account found. Please sign up first");return;}
+            if(storedUser.login!==loginInput.value.trim()||storedUser.password!==passwordInput.value){showError("Invalid credentials");return;}
+            window.location.href="index.html";
+        });
+        function isValidEmailOrPhone(value){
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)||/^\d{10}$/.test(value);
+        }
+    </script>
 </body>
 </html>

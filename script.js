@@ -5,7 +5,17 @@ const trendingTitles = [
   "Inception",
   "Interstellar",
   "The Dark Knight",
-  "Avengers: Endgame"
+  "Avengers: Endgame",
+  "Joker",
+  "John Wick",
+  "War",
+  "Andhadhun",
+  "Dangal",
+  "Vikram",
+  "Kaithi",
+  "RRR",
+  "Parasite",
+  "Train to Busan"
 ];
 function buildSearchUrl(title) {
   return `${API_URL}&t=${encodeURIComponent(title)}`;
@@ -54,12 +64,29 @@ const featuredMovies = [
   "Avengers: Endgame",
   "Gladiator",
   "Joker",
-  "Leo",
-  "Dragon",
-  "Thunivu",
-  "My Secret Santa",
-  "Rio",
-  "Stranger Things"
+  "Titanic",
+  "The Matrix",
+  "Forrest Gump",
+  "The Shawshank Redemption",
+  "3 Idiots",
+  "Dangal",
+  "Lagaan",
+  "Andhadhun",
+  "PK",
+  "Bajrangi Bhaijaan",
+  "Vikram",
+  "Kaithi",
+  "Enthiran",
+  "Thuppakki",
+  "Jai Bhim",
+  "RRR",
+  "Baahubali: The Beginning",
+  "Baahubali: The Conclusion",
+  "Pushpa: The Rise",
+  "Parasite",
+  "Train to Busan",
+  "Oldboy",
+  "Memories of Murder"
 ];
 async function loadBannerMovie() {
   const movieTitle =
@@ -158,13 +185,22 @@ async function renderMovieRow(movieTitles, containerId) {
 
       if (movie.Response === "False" || movie.Poster === "N/A") continue;
 
+      const card = document.createElement("div");
+      card.addEventListener("click", () => openModal(movie));
+      card.className = "movie-card";
       const img = document.createElement("img");
       img.src = movie.Poster;
       img.alt = movie.Title;
-      img.style.height = "200px";
-      img.style.borderRadius = "6px";
+      const info = document.createElement("div");
+      info.className = "movie-info";
+      info.innerHTML = `
+        <h4>${movie.Title}</h4>
+        <p>${movie.Year}</p>
+      `;
+      card.appendChild(img);
+      card.appendChild(info);
+      container.appendChild(card);
 
-      container.appendChild(img);
     } catch (err) {
       console.log("Movie fetch failed", err);
     }
@@ -182,4 +218,41 @@ document.querySelectorAll(".movie-list").forEach(row => {
       row.scrollLeft += e.deltaY;
     }
   });
+});
+function openModal(movie) {
+  const modal = document.getElementById("movie-modal");
+
+  document.getElementById("modal-img").src = movie.Poster;
+  document.getElementById("modal-title").textContent = movie.Title;
+  document.getElementById("modal-year").textContent = movie.Year;
+  document.getElementById("modal-plot").textContent = movie.Plot;
+
+  modal.style.display = "flex";
+
+  requestAnimationFrame(() => {
+    modal.style.opacity = "1";
+    modal.querySelector(".modal-content").style.transform = "scale(1)";
+  });
+}
+function closeModal() {
+  const modal = document.getElementById("movie-modal");
+  const content = modal.querySelector(".modal-content");
+
+  modal.style.opacity = "0";
+  content.style.transform = "scale(0.95)";
+
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 300);
+}
+
+document.getElementById("close-modal").addEventListener("click", closeModal);
+
+document.getElementById("movie-modal").addEventListener("click", e => {
+  if (e.target.id === "movie-modal") closeModal();
+});
+document.getElementById("movie-modal").addEventListener("click", e => {
+  if (e.target.id === "movie-modal") {
+    e.currentTarget.style.display = "none";
+  }
 });
