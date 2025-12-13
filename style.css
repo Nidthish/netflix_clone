@@ -130,3 +130,37 @@ p{
         filter: blur(22px) brightness(0.35);
     }
 }
+.movie-row {
+    padding: 20px 40px;
+    background-color: black;
+    color: white;
+}
+
+.movie-row h2 {
+    margin-bottom: 10px;
+}
+
+.movie-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+.movie-list img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.movie-list img:hover {
+    transform: scale(1.1);
+}
+.movie-list {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+.movie-list::-webkit-scrollbar {
+    display: none;
+}

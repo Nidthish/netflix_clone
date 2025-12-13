@@ -89,3 +89,97 @@ document.addEventListener("DOMContentLoaded", () => {
   fetchTrendingMovies();
   loadBannerMovie();
 });
+const actionMovies = [
+  "Mad Max: Fury Road",
+  "John Wick",
+  "The Dark Knight",
+  "Gladiator",
+  "Inception",
+  "Avengers: Infinity War",
+  "War",
+  "Dhoom 2",
+  "Baahubali: The Beginning",
+  "Baahubali: The Conclusion",
+  "Krrish",
+  "Ek Tha Tiger",
+  "Vikram",
+  "Kaithi",
+  "Master",
+  "Enthiran",
+  "Thuppakki",
+  "Leo",
+  "RRR",
+  "Pushpa: The Rise",
+  "Eega",
+  "Magadheera",
+  "Saaho",
+  "Train to Busan",
+  "The Man from Nowhere",
+  "The Villainess",
+  "Oldboy",
+  "I Saw the Devil"
+];
+const comedyMovies = [
+  "The Hangover",
+  "Superbad",
+  "Dumb and Dumber",
+  "Home Alone",
+  "Jumanji",
+  "Mr. Bean's Holiday",
+  "Hera Pheri",
+  "Phir Hera Pheri",
+  "3 Idiots",
+  "Golmaal: Fun Unlimited",
+  "Chup Chup Ke",
+  "Andaz Apna Apna",
+  "Panchathanthiram",
+  "Boss Engira Baskaran",
+  "Naduvula Konjam Pakkatha Kaanom",
+  "Doctor",
+  "Soodhu Kavvum",
+  "DJ Tillu",
+  "F2: Fun and Frustration",
+  "Jathi Ratnalu",
+  "Kick",
+  "Ready",
+  "Extreme Job",
+  "My Sassy Girl",
+  "Midnight Runners",
+  "The Accidental Detective"
+];
+async function renderMovieRow(movieTitles, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  for (let title of movieTitles) {
+    try {
+      const res = await fetch(`${API_URL}&t=${encodeURIComponent(title)}`);
+      const movie = await res.json();
+
+      if (movie.Response === "False" || movie.Poster === "N/A") continue;
+
+      const img = document.createElement("img");
+      img.src = movie.Poster;
+      img.alt = movie.Title;
+      img.style.height = "200px";
+      img.style.borderRadius = "6px";
+
+      container.appendChild(img);
+    } catch (err) {
+      console.log("Movie fetch failed", err);
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  fetchTrendingMovies();
+  loadBannerMovie();
+  renderMovieRow(actionMovies, "action-row");
+  renderMovieRow(comedyMovies, "comedy-row");
+});
+document.querySelectorAll(".movie-list").forEach(row => {
+  row.addEventListener("wheel", e => {
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+      row.scrollLeft += e.deltaY;
+    }
+  });
+});
