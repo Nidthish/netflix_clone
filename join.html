@@ -178,6 +178,20 @@
         function isStrongPassword(value){
             return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
         }
+        const facebookBtn=document.querySelector(".Facebook");
+        facebookBtn.addEventListener("click",e=>{
+            e.preventDefault();
+            const fbUser={
+                firstName:"Facebook",
+                lastName:"User",
+                login:"facebook@user.com",
+                password:"FACEBOOK_LOGIN"
+            };
+            localStorage.setItem("netflixUser",JSON.stringify(fbUser));
+            localStorage.setItem("isLoggedIn","true");
+            localStorage.setItem("loginType","facebook");
+            window.location.href="index.html";
+        });
     </script>
 </body>
 </html>

@@ -149,10 +149,20 @@
             const storedUser=JSON.parse(localStorage.getItem("netflixUser"));
             if(!storedUser){showError("No account found. Please sign up first");return;}
             if(storedUser.login!==loginInput.value.trim()||storedUser.password!==passwordInput.value){showError("Invalid credentials");return;}
+            localStorage.setItem("isLoggedIn","true");
+            localStorage.setItem("loginType","manual");
             window.location.href="index.html";
         });
         function isValidEmailOrPhone(value){
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)||/^\d{10}$/.test(value);
+        }
+        const logoutBtn=document.getElementById("logout-btn");
+        if(logoutBtn){
+            logoutBtn.addEventListener("click",()=>{
+                localStorage.removeItem("isLoggedIn");
+                localStorage.removeItem("loginType");
+                window.location.href="sign in.html";
+            });
         }
     </script>
 </body>
